@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* campaign details container */
+.campaign-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.campaign-poster {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.campaign-details {
+  padding: 20px;
+  border-radius: 10%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-details h2 {
+  color: #4caf50;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.campaign-details p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.progress-bar {
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+}
+
+.progress-percentage {
+  color: #4caf50;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Update the look of the progress bar to make it more modern */
+.progress::-webkit-progress-value {
+  background-color: #4caf50;
+}
+
+.progress::-moz-progress-bar {
+  background-color: #4caf50;
+}
+
+/* Add some spacing between the campaign details and the progress bar */
+.campaign-details .progress-bar {
+  margin-top: 15px;
+}
+
+/* campaign updates section css */
+
+.campaign-updates {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-updates h2 {
+  color: #4caf50;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.update {
+  border-left: 3px solid #4caf50;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.update h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.update p {
+  color: #555;
+  font-size: 16px;
+}
+
+.update:first-child {
+  margin-top: 0;
+}
+
+/* donor section css */
+.donors {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.donor {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.donor:last-child {
+  border-bottom: none;
+}
+
+.donor h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.donor p {
+  font-size: 14px;
+  color: #555;
+}
+
+.donor-message {
+  margin-top: 10px;
+  font-style: italic;
+  color: #777;
+}
+
+/* donation form css */
+
+.donation-form {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.donation-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-form label {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.donation-form input,
+.donation-form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.donation-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.donation-form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.donation-form button:hover {
+  background-color: #45a049;
+}
+
+/* Styles for the flash message overlay */
+.flash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+  z-index: 9999; /* Ensure the overlay appears above other elements */
+}
+
+/* Center the flash message within the overlay */
+.flash-message {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.flash-message-text {
+  margin: 0;
+  font-size: 16px;
+}
+
+.flash-message-close-btn {
+  top: 5px;
+  right: 10px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flash-message-close-btn:hover {
+  background-color: #d32f2f;
+}

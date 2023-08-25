@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate to <%= campaign.campaignTitle %></title>
+    <link rel="stylesheet" href="/donate.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Support <%= campaign.campaignTitle %></h1>
+    </header>
+    <main class="container">
+      <% if (successMessages.length > 0) { %>
+      <div class="flash-overlay">
+        <% for (let messageObj of successMessages) { %>
+        <div class="flash-message">
+          <p class="flash-message-text"><%= messageObj.message %></p>
+          <button
+            class="flash-message-close-btn"
+            onclick="closeFlashMessage(this)"
+          >
+            X
+          </button>
+        </div>
+        <% } %>
+      </div>
+      <% } %>
+      <div class="campaign-details-container">
+        <section class="campaign-poster-container">
+          <img
+            src="<%= campaign.campaignPoster %>"
+            alt="Campaign Poster"
+            class="campaign-poster"
+          />
+        </section>
+        <section class="campaign-details">
+          <h2><%= campaign.campaignTitle %></h2>
+          <p><%= campaign.campaignDescription %></p>
+          <div class="progress-bar">
+            <div class="progress" style="width: 50%"></div>
+          </div>
+          <p>
+            <%= campaign.currentAmountRaised %> / <%= campaign.fundraisingGoal
+            %> raised
+          </p>
+          <p class="progress-percentage">
+            <%= ((campaign.currentAmountRaised / campaign.fundraisingGoal) *
+            100).toFixed(2) %>% funded
+          </p>
+        </section>
+      </div>
+
+      <section class="campaign-updates">
+        <h2>Campaign Updates</h2>
+        <% for (let update of campaign.campaignUpdates) { %>
+        <div class="update">
+          <h3><%= update.updateTitle %></h3>
+          <p><%= update.updateDescription %></p>
+        </div>
+        <% } %>
+      </section>
+      <section class="donors">
+        <h2>Donors</h2>
+        <% for (let donor of campaign.donors) { %>
+        <div class="donor">
+          <h3><%= donor.name %></h3>
+          <p>Donation Amount: $<%= donor.donationAmount %></p>
+          <% if (donor.message) { %>
+          <p>Message: <%= donor.message %></p>
+          <% } %>
+        </div>
+        <% } %>
+      </section>
+      <section class="donation-form">
+        <h2>Make a Donation</h2>
+        <form action="/donate/<%= campaign.campID %>" method="post">
+          <label for="amount">Donation Amount:</label>
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            min="1"
+            step="1"
+            required
+          />
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message"></textarea>
+          <button type="submit">Donate</button>
+        </form>
+      </section>
+    </main>
+    <script>
+      function closeFlashMessage(button) {
+        const flashMessage = button.parentElement.parentElement;
+        flashMessage.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate campaign</title>
+    <link rel="stylesheet" type="text/css" href="/campaigns.css" />
+  </head>
+  <body>
+    <h1 style="display: flex; justify-content: center; color: black">
+      ALL CAMPAIGNS
+    </h1>
+    <% for (let campaign of campaigns) { %>
+    <div class="campaign-container">
+      <!-- Left part (poster) -->
+      <div class="campaign-poster-container">
+        <img
+          src="<%= campaign.campaignPoster %>"
+          alt="Campaign Poster"
+          class="campaign-poster"
+        />
+      </div>
+
+      <!-- Middle part (content) -->
+      <div class="campaign-details">
+        <h1 class="campaign-title"><%= campaign.campaignTitle %></h1>
+        <p class="campaign-description"><%= campaign.campaignDescription %></p>
+        <p class="fund-raised">
+          Fundraising Goal: $<%= campaign.fundraisingGoal %>
+        </p>
+        <p class="fund-raised">
+          Amount Raised: $<%= campaign.currentAmountRaised %>
+        </p>
+
+        <!-- Donate campaign button -->
+        <a href="/campaigns/<%= campaign.campID %>" class="donate-button"
+          >Donate Campaign</a
+        >
+      </div>
+    </div>
+    <% } %>
+  </body>
+</html>
